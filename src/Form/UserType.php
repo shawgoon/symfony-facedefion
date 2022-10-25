@@ -18,7 +18,7 @@ class UserType extends AbstractType
             ->add('firstname')
             ->add('email',EmailType::class)
             ->add('password',PasswordType::class)
-            ->add('confirmPassword',PasswordType::class)
+            // ->add('confirmPassword',PasswordType::class)
             ->add('roles')
         ;
     }
