@@ -30,7 +30,12 @@ class RegistrationController extends AbstractController
             // encode the plain password
             if($form->get('plainPassword')->getData() ===  $form->get('confirmPassword')->getData()){ 
 
-                
+                // comment obtenir l'url du dossier public ?
+                $dirUpload = str_replace("\\","/",$this->getParameter('upload_directory'))."/";
+
+                // utiliser la fonction moveUploadFile de php
+                move_uploaded_file($_FILES['registration_form']['tmp_name']['avatar'],
+                $dirUpload.$_FILES['registration_form']['name']['avatar']);
 
                 $user->setRoles(['ROLE_USER']);
                 $user->setPassword(
